@@ -11,7 +11,6 @@ app.use(cors({
     credentials: true
 }));
 
-const server = createServer(app);
 
 // const io = new Server(server, {
 //     cors: {
@@ -29,6 +28,7 @@ app.get("/", (req, res) => {
 //     console.log("User connected with Socket ID : ", socket.id);
 // });
 
+const server = createServer(app);
 server.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 });
