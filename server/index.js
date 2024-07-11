@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 //     console.log("User connected with Socket ID : ", socket.id);
 // });
 
-const server = createServer(app);
+// const server = createServer(app);
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 });
