@@ -10,25 +10,21 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     credentials: true
 }));
-
-
-// const io = new Server(server, {
-//     cors: {
-//         origin: "http://localhost:5173",
-//         methods: ["GET", "POST"],
-//         credentials: true
-//     }
-// });
-
 app.get("/", (req, res) => {
     res.send("Hello World!");
 })
+const server = createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: "http://localhost:5173",
+        methods: ["GET", "POST"],
+        credentials: true
+    }
+});
+io.on("connection", (socket) => {
+    console.log("User connected with Socket ID : ", socket.id);
+});
 
-// io.on("connection", (socket) => {
-//     console.log("User connected with Socket ID : ", socket.id);
-// });
-
-// const server = createServer(app);
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 });
