@@ -29,6 +29,6 @@ app.get("/", (req, res) => {
 // });
 
 const server = createServer(app);
-server.listen(port, () => {
+app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 });
